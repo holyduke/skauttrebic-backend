@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vedoucis",
+  "info": {
+    "name": "Vedouci"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "jmeno": {
+      "type": "string",
+      "required": true
+    },
+    "funkce": {
+      "type": "string",
+      "required": true
+    },
+    "fotka": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "popis": {
+      "type": "string"
+    },
+    "prezdivka": {
+      "type": "string"
+    },
+    "telefon": {
+      "type": "biginteger"
+    },
+    "email": {
+      "type": "email"
+    },
+    "oddil": {
+      "via": "vedoucis",
+      "model": "oddil"
+    },
+    "facebook": {
+      "type": "string"
+    }
+  }
+}

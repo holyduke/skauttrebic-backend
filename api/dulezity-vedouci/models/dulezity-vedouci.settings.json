@@ -1,0 +1,16 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dulezity_vedoucis",
+  "info": {
+    "name": "Dulezity-vedouci"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "vedouci": {
+      "model": "vedouci"
+    }
+  }
+}

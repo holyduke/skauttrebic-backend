@@ -1,0 +1,1584 @@
+input FileInfoInput {
+  name: String
+  alternativeText: String
+  caption: String
+}
+
+type UsersPermissionsMe {
+  id: ID!
+  username: String!
+  email: String!
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsMeRole
+}
+
+type UsersPermissionsMeRole {
+  id: ID!
+  name: String!
+  description: String
+  type: String
+}
+
+input UsersPermissionsRegisterInput {
+  username: String!
+  email: String!
+  password: String!
+}
+
+input UsersPermissionsLoginInput {
+  identifier: String!
+  password: String!
+  provider: String = "local"
+}
+
+type UsersPermissionsLoginPayload {
+  jwt: String
+  user: UsersPermissionsMe!
+}
+
+type UserPermissionsPasswordPayload {
+  ok: Boolean!
+}
+
+type Aktualita {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  nadpis: String!
+  text: String
+  autor: UsersPermissionsUser
+  obrazek: UploadFile
+  slug: String
+  oddils(sort: String, limit: Int, start: Int, where: JSON): [Oddil]
+  priloha(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+}
+
+type AktualitaConnection {
+  values: [Aktualita]
+  groupBy: AktualitaGroupBy
+  aggregate: AktualitaAggregator
+}
+
+type AktualitaAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type AktualitaGroupBy {
+  id: [AktualitaConnectionId]
+  _id: [AktualitaConnection_id]
+  createdAt: [AktualitaConnectionCreatedAt]
+  updatedAt: [AktualitaConnectionUpdatedAt]
+  nadpis: [AktualitaConnectionNadpis]
+  text: [AktualitaConnectionText]
+  autor: [AktualitaConnectionAutor]
+  obrazek: [AktualitaConnectionObrazek]
+  slug: [AktualitaConnectionSlug]
+}
+
+type AktualitaConnectionId {
+  key: ID
+  connection: AktualitaConnection
+}
+
+type AktualitaConnection_id {
+  key: ID
+  connection: AktualitaConnection
+}
+
+type AktualitaConnectionCreatedAt {
+  key: DateTime
+  connection: AktualitaConnection
+}
+
+type AktualitaConnectionUpdatedAt {
+  key: DateTime
+  connection: AktualitaConnection
+}
+
+type AktualitaConnectionNadpis {
+  key: String
+  connection: AktualitaConnection
+}
+
+type AktualitaConnectionText {
+  key: String
+  connection: AktualitaConnection
+}
+
+type AktualitaConnectionAutor {
+  key: ID
+  connection: AktualitaConnection
+}
+
+type AktualitaConnectionObrazek {
+  key: ID
+  connection: AktualitaConnection
+}
+
+type AktualitaConnectionSlug {
+  key: String
+  connection: AktualitaConnection
+}
+
+input AktualitaInput {
+  nadpis: String!
+  text: String
+  oddils: [ID]
+  autor: ID
+  priloha: [ID]
+  obrazek: ID
+  slug: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editAktualitaInput {
+  nadpis: String
+  text: String
+  oddils: [ID]
+  autor: ID
+  priloha: [ID]
+  obrazek: ID
+  slug: String
+  created_by: ID
+  updated_by: ID
+}
+
+input createAktualitaInput {
+  data: AktualitaInput
+}
+
+type createAktualitaPayload {
+  aktualita: Aktualita
+}
+
+input updateAktualitaInput {
+  where: InputID
+  data: editAktualitaInput
+}
+
+type updateAktualitaPayload {
+  aktualita: Aktualita
+}
+
+input deleteAktualitaInput {
+  where: InputID
+}
+
+type deleteAktualitaPayload {
+  aktualita: Aktualita
+}
+
+type Clen {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  jmeno: String
+  prezdivka: String
+  oddil: Oddil
+  emails(sort: String, limit: Int, start: Int, where: JSON): [Email]
+}
+
+type ClenConnection {
+  values: [Clen]
+  groupBy: ClenGroupBy
+  aggregate: ClenAggregator
+}
+
+type ClenAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type ClenGroupBy {
+  id: [ClenConnectionId]
+  _id: [ClenConnection_id]
+  createdAt: [ClenConnectionCreatedAt]
+  updatedAt: [ClenConnectionUpdatedAt]
+  jmeno: [ClenConnectionJmeno]
+  prezdivka: [ClenConnectionPrezdivka]
+  oddil: [ClenConnectionOddil]
+}
+
+type ClenConnectionId {
+  key: ID
+  connection: ClenConnection
+}
+
+type ClenConnection_id {
+  key: ID
+  connection: ClenConnection
+}
+
+type ClenConnectionCreatedAt {
+  key: DateTime
+  connection: ClenConnection
+}
+
+type ClenConnectionUpdatedAt {
+  key: DateTime
+  connection: ClenConnection
+}
+
+type ClenConnectionJmeno {
+  key: String
+  connection: ClenConnection
+}
+
+type ClenConnectionPrezdivka {
+  key: String
+  connection: ClenConnection
+}
+
+type ClenConnectionOddil {
+  key: ID
+  connection: ClenConnection
+}
+
+input ClenInput {
+  emails: [ID]
+  jmeno: String
+  prezdivka: String
+  oddil: ID
+  created_by: ID
+  updated_by: ID
+}
+
+input editClenInput {
+  emails: [ID]
+  jmeno: String
+  prezdivka: String
+  oddil: ID
+  created_by: ID
+  updated_by: ID
+}
+
+input createClenInput {
+  data: ClenInput
+}
+
+type createClenPayload {
+  clen: Clen
+}
+
+input updateClenInput {
+  where: InputID
+  data: editClenInput
+}
+
+type updateClenPayload {
+  clen: Clen
+}
+
+input deleteClenInput {
+  where: InputID
+}
+
+type deleteClenPayload {
+  clen: Clen
+}
+
+type DulezityVedouci {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  vedouci: Vedouci
+}
+
+type DulezityVedouciConnection {
+  values: [DulezityVedouci]
+  groupBy: DulezityVedouciGroupBy
+  aggregate: DulezityVedouciAggregator
+}
+
+type DulezityVedouciAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type DulezityVedouciGroupBy {
+  id: [DulezityVedouciConnectionId]
+  _id: [DulezityVedouciConnection_id]
+  createdAt: [DulezityVedouciConnectionCreatedAt]
+  updatedAt: [DulezityVedouciConnectionUpdatedAt]
+  vedouci: [DulezityVedouciConnectionVedouci]
+}
+
+type DulezityVedouciConnectionId {
+  key: ID
+  connection: DulezityVedouciConnection
+}
+
+type DulezityVedouciConnection_id {
+  key: ID
+  connection: DulezityVedouciConnection
+}
+
+type DulezityVedouciConnectionCreatedAt {
+  key: DateTime
+  connection: DulezityVedouciConnection
+}
+
+type DulezityVedouciConnectionUpdatedAt {
+  key: DateTime
+  connection: DulezityVedouciConnection
+}
+
+type DulezityVedouciConnectionVedouci {
+  key: ID
+  connection: DulezityVedouciConnection
+}
+
+input DulezityVedouciInput {
+  vedouci: ID
+  created_by: ID
+  updated_by: ID
+}
+
+input editDulezityVedouciInput {
+  vedouci: ID
+  created_by: ID
+  updated_by: ID
+}
+
+input createDulezityVedouciInput {
+  data: DulezityVedouciInput
+}
+
+type createDulezityVedouciPayload {
+  dulezityVedouci: DulezityVedouci
+}
+
+input updateDulezityVedouciInput {
+  where: InputID
+  data: editDulezityVedouciInput
+}
+
+type updateDulezityVedouciPayload {
+  dulezityVedouci: DulezityVedouci
+}
+
+input deleteDulezityVedouciInput {
+  where: InputID
+}
+
+type deleteDulezityVedouciPayload {
+  dulezityVedouci: DulezityVedouci
+}
+
+type Email {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  address: String
+}
+
+type EmailConnection {
+  values: [Email]
+  groupBy: EmailGroupBy
+  aggregate: EmailAggregator
+}
+
+type EmailAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type EmailGroupBy {
+  id: [EmailConnectionId]
+  _id: [EmailConnection_id]
+  createdAt: [EmailConnectionCreatedAt]
+  updatedAt: [EmailConnectionUpdatedAt]
+  address: [EmailConnectionAddress]
+}
+
+type EmailConnectionId {
+  key: ID
+  connection: EmailConnection
+}
+
+type EmailConnection_id {
+  key: ID
+  connection: EmailConnection
+}
+
+type EmailConnectionCreatedAt {
+  key: DateTime
+  connection: EmailConnection
+}
+
+type EmailConnectionUpdatedAt {
+  key: DateTime
+  connection: EmailConnection
+}
+
+type EmailConnectionAddress {
+  key: String
+  connection: EmailConnection
+}
+
+input EmailInput {
+  address: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editEmailInput {
+  address: String
+  created_by: ID
+  updated_by: ID
+}
+
+input createEmailInput {
+  data: EmailInput
+}
+
+type createEmailPayload {
+  email: Email
+}
+
+input updateEmailInput {
+  where: InputID
+  data: editEmailInput
+}
+
+type updateEmailPayload {
+  email: Email
+}
+
+input deleteEmailInput {
+  where: InputID
+}
+
+type deleteEmailPayload {
+  email: Email
+}
+
+type Feature {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  done: Boolean
+  popis: String
+}
+
+type FeatureConnection {
+  values: [Feature]
+  groupBy: FeatureGroupBy
+  aggregate: FeatureAggregator
+}
+
+type FeatureAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type FeatureGroupBy {
+  id: [FeatureConnectionId]
+  _id: [FeatureConnection_id]
+  createdAt: [FeatureConnectionCreatedAt]
+  updatedAt: [FeatureConnectionUpdatedAt]
+  done: [FeatureConnectionDone]
+  popis: [FeatureConnectionPopis]
+}
+
+type FeatureConnectionId {
+  key: ID
+  connection: FeatureConnection
+}
+
+type FeatureConnection_id {
+  key: ID
+  connection: FeatureConnection
+}
+
+type FeatureConnectionCreatedAt {
+  key: DateTime
+  connection: FeatureConnection
+}
+
+type FeatureConnectionUpdatedAt {
+  key: DateTime
+  connection: FeatureConnection
+}
+
+type FeatureConnectionDone {
+  key: Boolean
+  connection: FeatureConnection
+}
+
+type FeatureConnectionPopis {
+  key: String
+  connection: FeatureConnection
+}
+
+input FeatureInput {
+  done: Boolean
+  popis: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editFeatureInput {
+  done: Boolean
+  popis: String
+  created_by: ID
+  updated_by: ID
+}
+
+input createFeatureInput {
+  data: FeatureInput
+}
+
+type createFeaturePayload {
+  feature: Feature
+}
+
+input updateFeatureInput {
+  where: InputID
+  data: editFeatureInput
+}
+
+type updateFeaturePayload {
+  feature: Feature
+}
+
+input deleteFeatureInput {
+  where: InputID
+}
+
+type deleteFeaturePayload {
+  feature: Feature
+}
+
+type Oddil {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  nazev: String
+  vudce_oddilu: Vedouci
+  hlavni_email: String!
+  hlavni_jmeno: String!
+  sendinblue_templateID: Int!
+  vedoucis(sort: String, limit: Int, start: Int, where: JSON): [Vedouci]
+  aktualitas(sort: String, limit: Int, start: Int, where: JSON): [Aktualita]
+  clens(sort: String, limit: Int, start: Int, where: JSON): [Clen]
+}
+
+type OddilConnection {
+  values: [Oddil]
+  groupBy: OddilGroupBy
+  aggregate: OddilAggregator
+}
+
+type OddilAggregator {
+  count: Int
+  totalCount: Int
+  sum: OddilAggregatorSum
+  avg: OddilAggregatorAvg
+  min: OddilAggregatorMin
+  max: OddilAggregatorMax
+}
+
+type OddilAggregatorSum {
+  sendinblue_templateID: Float
+}
+
+type OddilAggregatorAvg {
+  sendinblue_templateID: Float
+}
+
+type OddilAggregatorMin {
+  sendinblue_templateID: Float
+}
+
+type OddilAggregatorMax {
+  sendinblue_templateID: Float
+}
+
+type OddilGroupBy {
+  id: [OddilConnectionId]
+  _id: [OddilConnection_id]
+  createdAt: [OddilConnectionCreatedAt]
+  updatedAt: [OddilConnectionUpdatedAt]
+  nazev: [OddilConnectionNazev]
+  vudce_oddilu: [OddilConnectionVudce_oddilu]
+  hlavni_email: [OddilConnectionHlavni_email]
+  hlavni_jmeno: [OddilConnectionHlavni_jmeno]
+  sendinblue_templateID: [OddilConnectionSendinblue_templateID]
+}
+
+type OddilConnectionId {
+  key: ID
+  connection: OddilConnection
+}
+
+type OddilConnection_id {
+  key: ID
+  connection: OddilConnection
+}
+
+type OddilConnectionCreatedAt {
+  key: DateTime
+  connection: OddilConnection
+}
+
+type OddilConnectionUpdatedAt {
+  key: DateTime
+  connection: OddilConnection
+}
+
+type OddilConnectionNazev {
+  key: String
+  connection: OddilConnection
+}
+
+type OddilConnectionVudce_oddilu {
+  key: ID
+  connection: OddilConnection
+}
+
+type OddilConnectionHlavni_email {
+  key: String
+  connection: OddilConnection
+}
+
+type OddilConnectionHlavni_jmeno {
+  key: String
+  connection: OddilConnection
+}
+
+type OddilConnectionSendinblue_templateID {
+  key: Int
+  connection: OddilConnection
+}
+
+input OddilInput {
+  nazev: String
+  vedoucis: [ID]
+  vudce_oddilu: ID
+  aktualitas: [ID]
+  clens: [ID]
+  hlavni_email: String!
+  hlavni_jmeno: String!
+  sendinblue_templateID: Int!
+  created_by: ID
+  updated_by: ID
+}
+
+input editOddilInput {
+  nazev: String
+  vedoucis: [ID]
+  vudce_oddilu: ID
+  aktualitas: [ID]
+  clens: [ID]
+  hlavni_email: String
+  hlavni_jmeno: String
+  sendinblue_templateID: Int
+  created_by: ID
+  updated_by: ID
+}
+
+input createOddilInput {
+  data: OddilInput
+}
+
+type createOddilPayload {
+  oddil: Oddil
+}
+
+input updateOddilInput {
+  where: InputID
+  data: editOddilInput
+}
+
+type updateOddilPayload {
+  oddil: Oddil
+}
+
+input deleteOddilInput {
+  where: InputID
+}
+
+type deleteOddilPayload {
+  oddil: Oddil
+}
+
+type Spravce {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  vedouci: Vedouci
+}
+
+type SpravceConnection {
+  values: [Spravce]
+  groupBy: SpravceGroupBy
+  aggregate: SpravceAggregator
+}
+
+type SpravceAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type SpravceGroupBy {
+  id: [SpravceConnectionId]
+  _id: [SpravceConnection_id]
+  createdAt: [SpravceConnectionCreatedAt]
+  updatedAt: [SpravceConnectionUpdatedAt]
+  vedouci: [SpravceConnectionVedouci]
+}
+
+type SpravceConnectionId {
+  key: ID
+  connection: SpravceConnection
+}
+
+type SpravceConnection_id {
+  key: ID
+  connection: SpravceConnection
+}
+
+type SpravceConnectionCreatedAt {
+  key: DateTime
+  connection: SpravceConnection
+}
+
+type SpravceConnectionUpdatedAt {
+  key: DateTime
+  connection: SpravceConnection
+}
+
+type SpravceConnectionVedouci {
+  key: ID
+  connection: SpravceConnection
+}
+
+input SpravceInput {
+  vedouci: ID
+  created_by: ID
+  updated_by: ID
+}
+
+input editSpravceInput {
+  vedouci: ID
+  created_by: ID
+  updated_by: ID
+}
+
+input createSpravceInput {
+  data: SpravceInput
+}
+
+type createSpravcePayload {
+  spravce: Spravce
+}
+
+input updateSpravceInput {
+  where: InputID
+  data: editSpravceInput
+}
+
+type updateSpravcePayload {
+  spravce: Spravce
+}
+
+input deleteSpravceInput {
+  where: InputID
+}
+
+type deleteSpravcePayload {
+  spravce: Spravce
+}
+
+type Vedouci {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  jmeno: String!
+  funkce: String!
+  popis: String
+  prezdivka: String
+  telefon: Long
+  email: String
+  oddil: Oddil
+  facebook: String
+  fotka(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
+}
+
+type VedouciConnection {
+  values: [Vedouci]
+  groupBy: VedouciGroupBy
+  aggregate: VedouciAggregator
+}
+
+type VedouciAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type VedouciGroupBy {
+  id: [VedouciConnectionId]
+  _id: [VedouciConnection_id]
+  createdAt: [VedouciConnectionCreatedAt]
+  updatedAt: [VedouciConnectionUpdatedAt]
+  jmeno: [VedouciConnectionJmeno]
+  funkce: [VedouciConnectionFunkce]
+  popis: [VedouciConnectionPopis]
+  prezdivka: [VedouciConnectionPrezdivka]
+  telefon: [VedouciConnectionTelefon]
+  email: [VedouciConnectionEmail]
+  oddil: [VedouciConnectionOddil]
+  facebook: [VedouciConnectionFacebook]
+}
+
+type VedouciConnectionId {
+  key: ID
+  connection: VedouciConnection
+}
+
+type VedouciConnection_id {
+  key: ID
+  connection: VedouciConnection
+}
+
+type VedouciConnectionCreatedAt {
+  key: DateTime
+  connection: VedouciConnection
+}
+
+type VedouciConnectionUpdatedAt {
+  key: DateTime
+  connection: VedouciConnection
+}
+
+type VedouciConnectionJmeno {
+  key: String
+  connection: VedouciConnection
+}
+
+type VedouciConnectionFunkce {
+  key: String
+  connection: VedouciConnection
+}
+
+type VedouciConnectionPopis {
+  key: String
+  connection: VedouciConnection
+}
+
+type VedouciConnectionPrezdivka {
+  key: String
+  connection: VedouciConnection
+}
+
+type VedouciConnectionTelefon {
+  key: ID
+  connection: VedouciConnection
+}
+
+type VedouciConnectionEmail {
+  key: String
+  connection: VedouciConnection
+}
+
+type VedouciConnectionOddil {
+  key: ID
+  connection: VedouciConnection
+}
+
+type VedouciConnectionFacebook {
+  key: String
+  connection: VedouciConnection
+}
+
+input VedouciInput {
+  jmeno: String!
+  funkce: String!
+  fotka: [ID]
+  popis: String
+  prezdivka: String
+  telefon: Long
+  email: String
+  oddil: ID
+  facebook: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editVedouciInput {
+  jmeno: String
+  funkce: String
+  fotka: [ID]
+  popis: String
+  prezdivka: String
+  telefon: Long
+  email: String
+  oddil: ID
+  facebook: String
+  created_by: ID
+  updated_by: ID
+}
+
+input createVedouciInput {
+  data: VedouciInput
+}
+
+type createVedouciPayload {
+  vedouci: Vedouci
+}
+
+input updateVedouciInput {
+  where: InputID
+  data: editVedouciInput
+}
+
+type updateVedouciPayload {
+  vedouci: Vedouci
+}
+
+input deleteVedouciInput {
+  where: InputID
+}
+
+type deleteVedouciPayload {
+  vedouci: Vedouci
+}
+
+type UploadFile {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  name: String!
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String!
+  ext: String
+  mime: String!
+  size: Float!
+  url: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  related(sort: String, limit: Int, start: Int, where: JSON): [Morph]
+}
+
+type UploadFileConnection {
+  values: [UploadFile]
+  groupBy: UploadFileGroupBy
+  aggregate: UploadFileAggregator
+}
+
+type UploadFileAggregator {
+  count: Int
+  totalCount: Int
+  sum: UploadFileAggregatorSum
+  avg: UploadFileAggregatorAvg
+  min: UploadFileAggregatorMin
+  max: UploadFileAggregatorMax
+}
+
+type UploadFileAggregatorSum {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorAvg {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorMin {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileAggregatorMax {
+  width: Float
+  height: Float
+  size: Float
+}
+
+type UploadFileGroupBy {
+  id: [UploadFileConnectionId]
+  _id: [UploadFileConnection_id]
+  createdAt: [UploadFileConnectionCreatedAt]
+  updatedAt: [UploadFileConnectionUpdatedAt]
+  name: [UploadFileConnectionName]
+  alternativeText: [UploadFileConnectionAlternativeText]
+  caption: [UploadFileConnectionCaption]
+  width: [UploadFileConnectionWidth]
+  height: [UploadFileConnectionHeight]
+  formats: [UploadFileConnectionFormats]
+  hash: [UploadFileConnectionHash]
+  ext: [UploadFileConnectionExt]
+  mime: [UploadFileConnectionMime]
+  size: [UploadFileConnectionSize]
+  url: [UploadFileConnectionUrl]
+  previewUrl: [UploadFileConnectionPreviewUrl]
+  provider: [UploadFileConnectionProvider]
+  provider_metadata: [UploadFileConnectionProvider_metadata]
+}
+
+type UploadFileConnectionId {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnection_id {
+  key: ID
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCreatedAt {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUpdatedAt {
+  key: DateTime
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionName {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionAlternativeText {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionCaption {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionWidth {
+  key: Int
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHeight {
+  key: Int
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionFormats {
+  key: JSON
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionHash {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionExt {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionMime {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionSize {
+  key: Float
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionPreviewUrl {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider {
+  key: String
+  connection: UploadFileConnection
+}
+
+type UploadFileConnectionProvider_metadata {
+  key: JSON
+  connection: UploadFileConnection
+}
+
+input FileInput {
+  name: String!
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String!
+  ext: String
+  mime: String!
+  size: Float!
+  url: String!
+  previewUrl: String
+  provider: String!
+  provider_metadata: JSON
+  related: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input editFileInput {
+  name: String
+  alternativeText: String
+  caption: String
+  width: Int
+  height: Int
+  formats: JSON
+  hash: String
+  ext: String
+  mime: String
+  size: Float
+  url: String
+  previewUrl: String
+  provider: String
+  provider_metadata: JSON
+  related: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input deleteFileInput {
+  where: InputID
+}
+
+type deleteFilePayload {
+  file: UploadFile
+}
+
+type UsersPermissionsPermission {
+  id: ID!
+  _id: ID!
+  type: String!
+  controller: String!
+  action: String!
+  enabled: Boolean!
+  policy: String
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsRole {
+  id: ID!
+  _id: ID!
+  name: String!
+  description: String
+  type: String
+  permissions(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsPermission]
+  users(sort: String, limit: Int, start: Int, where: JSON): [UsersPermissionsUser]
+}
+
+type UsersPermissionsRoleConnection {
+  values: [UsersPermissionsRole]
+  groupBy: UsersPermissionsRoleGroupBy
+  aggregate: UsersPermissionsRoleAggregator
+}
+
+type UsersPermissionsRoleAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UsersPermissionsRoleGroupBy {
+  id: [UsersPermissionsRoleConnectionId]
+  _id: [UsersPermissionsRoleConnection_id]
+  name: [UsersPermissionsRoleConnectionName]
+  description: [UsersPermissionsRoleConnectionDescription]
+  type: [UsersPermissionsRoleConnectionType]
+}
+
+type UsersPermissionsRoleConnectionId {
+  key: ID
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnection_id {
+  key: ID
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionName {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionDescription {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+type UsersPermissionsRoleConnectionType {
+  key: String
+  connection: UsersPermissionsRoleConnection
+}
+
+input RoleInput {
+  name: String!
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input editRoleInput {
+  name: String
+  description: String
+  type: String
+  permissions: [ID]
+  users: [ID]
+  created_by: ID
+  updated_by: ID
+}
+
+input createRoleInput {
+  data: RoleInput
+}
+
+type createRolePayload {
+  role: UsersPermissionsRole
+}
+
+input updateRoleInput {
+  where: InputID
+  data: editRoleInput
+}
+
+type updateRolePayload {
+  role: UsersPermissionsRole
+}
+
+input deleteRoleInput {
+  where: InputID
+}
+
+type deleteRolePayload {
+  role: UsersPermissionsRole
+}
+
+type UsersPermissionsUser {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  username: String!
+  email: String!
+  provider: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: UsersPermissionsRole
+  jmeno: String!
+  prezdivka: String
+  aktualitas(sort: String, limit: Int, start: Int, where: JSON): [Aktualita]
+}
+
+type UsersPermissionsUserConnection {
+  values: [UsersPermissionsUser]
+  groupBy: UsersPermissionsUserGroupBy
+  aggregate: UsersPermissionsUserAggregator
+}
+
+type UsersPermissionsUserAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type UsersPermissionsUserGroupBy {
+  id: [UsersPermissionsUserConnectionId]
+  _id: [UsersPermissionsUserConnection_id]
+  createdAt: [UsersPermissionsUserConnectionCreatedAt]
+  updatedAt: [UsersPermissionsUserConnectionUpdatedAt]
+  username: [UsersPermissionsUserConnectionUsername]
+  email: [UsersPermissionsUserConnectionEmail]
+  provider: [UsersPermissionsUserConnectionProvider]
+  confirmed: [UsersPermissionsUserConnectionConfirmed]
+  blocked: [UsersPermissionsUserConnectionBlocked]
+  role: [UsersPermissionsUserConnectionRole]
+  jmeno: [UsersPermissionsUserConnectionJmeno]
+  prezdivka: [UsersPermissionsUserConnectionPrezdivka]
+}
+
+type UsersPermissionsUserConnectionId {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnection_id {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionCreatedAt {
+  key: DateTime
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUpdatedAt {
+  key: DateTime
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionUsername {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionEmail {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionProvider {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionConfirmed {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionBlocked {
+  key: Boolean
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionRole {
+  key: ID
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionJmeno {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+type UsersPermissionsUserConnectionPrezdivka {
+  key: String
+  connection: UsersPermissionsUserConnection
+}
+
+input UserInput {
+  username: String!
+  email: String!
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+  jmeno: String!
+  aktualitas: [ID]
+  prezdivka: String
+  created_by: ID
+  updated_by: ID
+}
+
+input editUserInput {
+  username: String
+  email: String
+  provider: String
+  password: String
+  resetPasswordToken: String
+  confirmed: Boolean
+  blocked: Boolean
+  role: ID
+  jmeno: String
+  aktualitas: [ID]
+  prezdivka: String
+  created_by: ID
+  updated_by: ID
+}
+
+input createUserInput {
+  data: UserInput
+}
+
+type createUserPayload {
+  user: UsersPermissionsUser
+}
+
+input updateUserInput {
+  where: InputID
+  data: editUserInput
+}
+
+type updateUserPayload {
+  user: UsersPermissionsUser
+}
+
+input deleteUserInput {
+  where: InputID
+}
+
+type deleteUserPayload {
+  user: UsersPermissionsUser
+}
+
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Aktualita | AktualitaConnection | AktualitaAggregator | AktualitaGroupBy | AktualitaConnectionId | AktualitaConnection_id | AktualitaConnectionCreatedAt | AktualitaConnectionUpdatedAt | AktualitaConnectionNadpis | AktualitaConnectionText | AktualitaConnectionAutor | AktualitaConnectionObrazek | AktualitaConnectionSlug | createAktualitaPayload | updateAktualitaPayload | deleteAktualitaPayload | Clen | ClenConnection | ClenAggregator | ClenGroupBy | ClenConnectionId | ClenConnection_id | ClenConnectionCreatedAt | ClenConnectionUpdatedAt | ClenConnectionJmeno | ClenConnectionPrezdivka | ClenConnectionOddil | createClenPayload | updateClenPayload | deleteClenPayload | DulezityVedouci | DulezityVedouciConnection | DulezityVedouciAggregator | DulezityVedouciGroupBy | DulezityVedouciConnectionId | DulezityVedouciConnection_id | DulezityVedouciConnectionCreatedAt | DulezityVedouciConnectionUpdatedAt | DulezityVedouciConnectionVedouci | createDulezityVedouciPayload | updateDulezityVedouciPayload | deleteDulezityVedouciPayload | Email | EmailConnection | EmailAggregator | EmailGroupBy | EmailConnectionId | EmailConnection_id | EmailConnectionCreatedAt | EmailConnectionUpdatedAt | EmailConnectionAddress | createEmailPayload | updateEmailPayload | deleteEmailPayload | Feature | FeatureConnection | FeatureAggregator | FeatureGroupBy | FeatureConnectionId | FeatureConnection_id | FeatureConnectionCreatedAt | FeatureConnectionUpdatedAt | FeatureConnectionDone | FeatureConnectionPopis | createFeaturePayload | updateFeaturePayload | deleteFeaturePayload | Oddil | OddilConnection | OddilAggregator | OddilAggregatorSum | OddilAggregatorAvg | OddilAggregatorMin | OddilAggregatorMax | OddilGroupBy | OddilConnectionId | OddilConnection_id | OddilConnectionCreatedAt | OddilConnectionUpdatedAt | OddilConnectionNazev | OddilConnectionVudce_oddilu | OddilConnectionHlavni_email | OddilConnectionHlavni_jmeno | OddilConnectionSendinblue_templateID | createOddilPayload | updateOddilPayload | deleteOddilPayload | Spravce | SpravceConnection | SpravceAggregator | SpravceGroupBy | SpravceConnectionId | SpravceConnection_id | SpravceConnectionCreatedAt | SpravceConnectionUpdatedAt | SpravceConnectionVedouci | createSpravcePayload | updateSpravcePayload | deleteSpravcePayload | Vedouci | VedouciConnection | VedouciAggregator | VedouciGroupBy | VedouciConnectionId | VedouciConnection_id | VedouciConnectionCreatedAt | VedouciConnectionUpdatedAt | VedouciConnectionJmeno | VedouciConnectionFunkce | VedouciConnectionPopis | VedouciConnectionPrezdivka | VedouciConnectionTelefon | VedouciConnectionEmail | VedouciConnectionOddil | VedouciConnectionFacebook | createVedouciPayload | updateVedouciPayload | deleteVedouciPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionJmeno | UsersPermissionsUserConnectionPrezdivka | createUserPayload | updateUserPayload | deleteUserPayload
+
+input InputID {
+  id: ID!
+}
+
+enum PublicationState {
+  LIVE
+  PREVIEW
+}
+
+type AdminUser {
+  id: ID!
+  username: String
+  firstname: String!
+  lastname: String!
+}
+
+type Query {
+  aktualita(id: ID!, publicationState: PublicationState): Aktualita
+  aktualitas(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Aktualita]
+  aktualitasConnection(sort: String, limit: Int, start: Int, where: JSON): AktualitaConnection
+  clen(id: ID!, publicationState: PublicationState): Clen
+  clens(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Clen]
+  clensConnection(sort: String, limit: Int, start: Int, where: JSON): ClenConnection
+  dulezityVedouci(id: ID!, publicationState: PublicationState): DulezityVedouci
+  dulezityVedoucis(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [DulezityVedouci]
+  dulezityVedoucisConnection(sort: String, limit: Int, start: Int, where: JSON): DulezityVedouciConnection
+  email(id: ID!, publicationState: PublicationState): Email
+  emails(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Email]
+  emailsConnection(sort: String, limit: Int, start: Int, where: JSON): EmailConnection
+  feature(id: ID!, publicationState: PublicationState): Feature
+  features(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Feature]
+  featuresConnection(sort: String, limit: Int, start: Int, where: JSON): FeatureConnection
+  oddil(id: ID!, publicationState: PublicationState): Oddil
+  oddils(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Oddil]
+  oddilsConnection(sort: String, limit: Int, start: Int, where: JSON): OddilConnection
+  spravce(id: ID!, publicationState: PublicationState): Spravce
+  spravces(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Spravce]
+  spravcesConnection(sort: String, limit: Int, start: Int, where: JSON): SpravceConnection
+  vedouci(id: ID!, publicationState: PublicationState): Vedouci
+  vedoucis(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Vedouci]
+  vedoucisConnection(sort: String, limit: Int, start: Int, where: JSON): VedouciConnection
+  files(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UploadFile]
+  filesConnection(sort: String, limit: Int, start: Int, where: JSON): UploadFileConnection
+  role(id: ID!, publicationState: PublicationState): UsersPermissionsRole
+
+  """
+  Retrieve all the existing roles. You can't apply filters on this query.
+  """
+  roles(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UsersPermissionsRole]
+  rolesConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsRoleConnection
+  user(id: ID!, publicationState: PublicationState): UsersPermissionsUser
+  users(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [UsersPermissionsUser]
+  usersConnection(sort: String, limit: Int, start: Int, where: JSON): UsersPermissionsUserConnection
+  me: UsersPermissionsMe
+}
+
+type Mutation {
+  createAktualita(input: createAktualitaInput): createAktualitaPayload
+  updateAktualita(input: updateAktualitaInput): updateAktualitaPayload
+  deleteAktualita(input: deleteAktualitaInput): deleteAktualitaPayload
+  createClen(input: createClenInput): createClenPayload
+  updateClen(input: updateClenInput): updateClenPayload
+  deleteClen(input: deleteClenInput): deleteClenPayload
+  createDulezityVedouci(input: createDulezityVedouciInput): createDulezityVedouciPayload
+  updateDulezityVedouci(input: updateDulezityVedouciInput): updateDulezityVedouciPayload
+  deleteDulezityVedouci(input: deleteDulezityVedouciInput): deleteDulezityVedouciPayload
+  createEmail(input: createEmailInput): createEmailPayload
+  updateEmail(input: updateEmailInput): updateEmailPayload
+  deleteEmail(input: deleteEmailInput): deleteEmailPayload
+  createFeature(input: createFeatureInput): createFeaturePayload
+  updateFeature(input: updateFeatureInput): updateFeaturePayload
+  deleteFeature(input: deleteFeatureInput): deleteFeaturePayload
+  createOddil(input: createOddilInput): createOddilPayload
+  updateOddil(input: updateOddilInput): updateOddilPayload
+  deleteOddil(input: deleteOddilInput): deleteOddilPayload
+  createSpravce(input: createSpravceInput): createSpravcePayload
+  updateSpravce(input: updateSpravceInput): updateSpravcePayload
+  deleteSpravce(input: deleteSpravceInput): deleteSpravcePayload
+  createVedouci(input: createVedouciInput): createVedouciPayload
+  updateVedouci(input: updateVedouciInput): updateVedouciPayload
+  deleteVedouci(input: deleteVedouciInput): deleteVedouciPayload
+
+  """Delete one file"""
+  deleteFile(input: deleteFileInput): deleteFilePayload
+
+  """Create a new role"""
+  createRole(input: createRoleInput): createRolePayload
+
+  """Update an existing role"""
+  updateRole(input: updateRoleInput): updateRolePayload
+
+  """Delete an existing role"""
+  deleteRole(input: deleteRoleInput): deleteRolePayload
+
+  """Create a new user"""
+  createUser(input: createUserInput): createUserPayload
+
+  """Update an existing user"""
+  updateUser(input: updateUserInput): updateUserPayload
+
+  """Delete an existing user"""
+  deleteUser(input: deleteUserInput): deleteUserPayload
+  upload(refId: ID, ref: String, field: String, source: String, file: Upload!): UploadFile!
+  multipleUpload(refId: ID, ref: String, field: String, source: String, files: [Upload]!): [UploadFile]!
+  updateFileInfo(id: ID!, info: FileInfoInput!): UploadFile!
+  login(input: UsersPermissionsLoginInput!): UsersPermissionsLoginPayload!
+  register(input: UsersPermissionsRegisterInput!): UsersPermissionsLoginPayload!
+  forgotPassword(email: String!): UserPermissionsPasswordPayload
+  resetPassword(password: String!, passwordConfirmation: String!, code: String!): UsersPermissionsLoginPayload
+  emailConfirmation(confirmation: String!): UsersPermissionsLoginPayload
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
+
+"""A time string with format: HH:mm:ss.SSS"""
+scalar Time
+
+"""
+A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar Date
+
+"""The `Long` scalar type represents 52-bit integers"""
+scalar Long
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload

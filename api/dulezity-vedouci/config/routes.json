@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/dulezity-vedoucis",
+      "handler": "dulezity-vedouci.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/dulezity-vedoucis/count",
+      "handler": "dulezity-vedouci.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/dulezity-vedoucis/:id",
+      "handler": "dulezity-vedouci.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/dulezity-vedoucis",
+      "handler": "dulezity-vedouci.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/dulezity-vedoucis/:id",
+      "handler": "dulezity-vedouci.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/dulezity-vedoucis/:id",
+      "handler": "dulezity-vedouci.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

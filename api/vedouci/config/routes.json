@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/vedoucis",
+      "handler": "vedouci.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/vedoucis/count",
+      "handler": "vedouci.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/vedoucis/:id",
+      "handler": "vedouci.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/vedoucis",
+      "handler": "vedouci.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/vedoucis/:id",
+      "handler": "vedouci.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/vedoucis/:id",
+      "handler": "vedouci.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

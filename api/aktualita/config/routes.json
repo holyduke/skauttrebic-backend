@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/aktualitas",
+      "handler": "aktualita.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/aktualitas/count",
+      "handler": "aktualita.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/aktualitas/:id",
+      "handler": "aktualita.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/aktualitas",
+      "handler": "aktualita.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/aktualitas/:id",
+      "handler": "aktualita.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/aktualitas/:id",
+      "handler": "aktualita.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

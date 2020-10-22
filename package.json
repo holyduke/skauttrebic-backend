@@ -1,0 +1,50 @@
+{
+  "name": "backend",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@sendgrid/mail": "^7.1.1",
+    "aws-sdk": "^2.738.0",
+    "dotenv": "^8.2.0",
+    "mailgun": "^0.5.0",
+    "mailgun-js": "^0.22.0",
+    "nodemailer": "^6.4.11",
+    "require": "^2.4.20",
+    "serve": "^11.3.2",
+    "sib-api-v3-sdk": "^8.0.1",
+    "slugify": "^1.4.5",
+    "strapi": "3.2.4",
+    "strapi-admin": "3.2.4",
+    "strapi-connector-mongoose": "3.2.4",
+    "strapi-plugin-content-manager": "3.2.4",
+    "strapi-plugin-content-type-builder": "3.2.4",
+    "strapi-plugin-email": "3.2.4",
+    "strapi-plugin-graphql": "3.2.4",
+    "strapi-plugin-upload": "3.2.4",
+    "strapi-plugin-users-permissions": "3.2.4",
+    "strapi-provider-email-gmail": "^1.0.0",
+    "strapi-provider-email-sendgrid": "^3.0.0-beta.20.3",
+    "strapi-provider-upload-aws-s3": "^3.0.0",
+    "strapi-provider-upload-cloudinary": "3.2.4",
+    "strapi-utils": "3.2.4"
+  },
+  "author": {
+    "name": "Dominik Jašek"
+  },
+  "strapi": {
+    "uuid": "2cafbd0b-3fc7-4920-a2bd-4b0ea5ca6593"
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

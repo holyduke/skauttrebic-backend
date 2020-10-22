@@ -1,0 +1,16 @@
+{
+  "kind": "collectionType",
+  "collectionName": "spravces",
+  "info": {
+    "name": "Spravce"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "vedouci": {
+      "model": "vedouci"
+    }
+  }
+}

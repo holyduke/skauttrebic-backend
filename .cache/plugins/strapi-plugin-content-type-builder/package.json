@@ -1,0 +1,101 @@
+{
+  "_args": [
+    [
+      "strapi-plugin-content-type-builder@3.2.4",
+      "D:\\Skaut\\_GIT\\SkautTrebic\\backend"
+    ]
+  ],
+  "_from": "strapi-plugin-content-type-builder@3.2.4",
+  "_id": "strapi-plugin-content-type-builder@3.2.4",
+  "_inBundle": false,
+  "_integrity": "sha512-JaY+SEcDm6DZB0dIe/pK1Ds1Orw8tUp+s01dWUz4GG9Zt2OUmWsGWI74YwGlxnVAQBXtLXTWAF8PqF6U6jXWew==",
+  "_location": "/strapi-plugin-content-type-builder",
+  "_phantomChildren": {
+    "@babel/runtime": "7.12.1",
+    "@sindresorhus/slugify": "1.1.0",
+    "date-fns": "2.16.1",
+    "lodash-es": "4.17.15",
+    "pino": "4.17.6",
+    "pluralize": "8.0.0",
+    "synchronous-promise": "2.0.15",
+    "toposort": "2.0.2"
+  },
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "strapi-plugin-content-type-builder@3.2.4",
+    "name": "strapi-plugin-content-type-builder",
+    "escapedName": "strapi-plugin-content-type-builder",
+    "rawSpec": "3.2.4",
+    "saveSpec": null,
+    "fetchSpec": "3.2.4"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-content-type-builder/-/strapi-plugin-content-type-builder-3.2.4.tgz",
+  "_spec": "3.2.4",
+  "_where": "D:\\Skaut\\_GIT\\SkautTrebic\\backend",
+  "author": {
+    "name": "Strapi team",
+    "email": "hi@strapi.io",
+    "url": "http://strapi.io"
+  },
+  "bugs": {
+    "url": "https://github.com/strapi/strapi/issues"
+  },
+  "dependencies": {
+    "@buffetjs/core": "3.3.1",
+    "@buffetjs/custom": "3.3.1",
+    "@buffetjs/hooks": "3.3.1",
+    "@buffetjs/icons": "3.3.1",
+    "@buffetjs/styles": "3.3.1",
+    "@buffetjs/utils": "3.3.1",
+    "@sindresorhus/slugify": "1.1.0",
+    "fs-extra": "^9.0.1",
+    "immutable": "^3.8.2",
+    "lodash": "4.17.19",
+    "pluralize": "^8.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.9.0",
+    "react-intl": "4.5.0",
+    "react-redux": "7.2.0",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
+    "reactstrap": "8.4.1",
+    "redux": "^4.0.1",
+    "redux-immutable": "^4.0.0",
+    "reselect": "^4.0.0",
+    "strapi-generate": "3.2.4",
+    "strapi-generate-api": "3.2.4",
+    "strapi-helper-plugin": "3.2.4",
+    "strapi-utils": "3.2.4",
+    "yup": "^0.27.0"
+  },
+  "description": "Strapi plugin to create content type (API).",
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "gitHead": "e8153d99c06ad3fb375e750a3d869d9d9441b5c3",
+  "homepage": "https://github.com/strapi/strapi#readme",
+  "license": "SEE LICENSE IN LICENSE",
+  "maintainers": [
+    {
+      "name": "Strapi team",
+      "email": "hi@strapi.io",
+      "url": "http://strapi.io"
+    }
+  ],
+  "name": "strapi-plugin-content-type-builder",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/strapi/strapi.git"
+  },
+  "strapi": {
+    "name": "Content Type Builder",
+    "icon": "paint-brush",
+    "description": "content-type-builder.plugin.description"
+  },
+  "version": "3.2.4"
+}

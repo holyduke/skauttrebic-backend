@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/oddils",
+      "handler": "oddil.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/oddils/count",
+      "handler": "oddil.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/oddils/:id",
+      "handler": "oddil.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/oddils",
+      "handler": "oddil.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/oddils/:id",
+      "handler": "oddil.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/oddils/:id",
+      "handler": "oddil.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clens",
+  "info": {
+    "name": "clen"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "emails": {
+      "collection": "email"
+    },
+    "jmeno": {
+      "type": "string"
+    },
+    "prezdivka": {
+      "type": "string"
+    },
+    "oddil": {
+      "via": "clens",
+      "model": "oddil"
+    }
+  }
+}

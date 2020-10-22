@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "features",
+  "info": {
+    "name": "feature"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "done": {
+      "type": "boolean",
+      "default": false
+    },
+    "popis": {
+      "type": "string"
+    }
+  }
+}

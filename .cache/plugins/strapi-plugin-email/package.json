@@ -1,0 +1,83 @@
+{
+  "_args": [
+    [
+      "strapi-plugin-email@3.2.4",
+      "D:\\Skaut\\_GIT\\SkautTrebic\\backend"
+    ]
+  ],
+  "_from": "strapi-plugin-email@3.2.4",
+  "_id": "strapi-plugin-email@3.2.4",
+  "_inBundle": false,
+  "_integrity": "sha512-ojQaYBZGU4WG/i2p13vEWcqCl+rSYl7LTn419DxRoAxU1oFgQ9TzSYAimo34pjUEnder45nQK+iE+3pcxZgkeA==",
+  "_location": "/strapi-plugin-email",
+  "_phantomChildren": {
+    "@sindresorhus/slugify": "1.1.0",
+    "date-fns": "2.16.1",
+    "pino": "4.17.6",
+    "pluralize": "8.0.0",
+    "yup": "0.29.3"
+  },
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "strapi-plugin-email@3.2.4",
+    "name": "strapi-plugin-email",
+    "escapedName": "strapi-plugin-email",
+    "rawSpec": "3.2.4",
+    "saveSpec": null,
+    "fetchSpec": "3.2.4"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/strapi-plugin-email/-/strapi-plugin-email-3.2.4.tgz",
+  "_spec": "3.2.4",
+  "_where": "D:\\Skaut\\_GIT\\SkautTrebic\\backend",
+  "author": {
+    "name": "Strapi team",
+    "email": "hi@strapi.io",
+    "url": "http://strapi.io"
+  },
+  "bugs": {
+    "url": "https://github.com/strapi/strapi/issues"
+  },
+  "dependencies": {
+    "lodash": "4.17.19",
+    "strapi-provider-email-sendmail": "3.2.4",
+    "strapi-utils": "3.2.4"
+  },
+  "description": "This is the description of the plugin.",
+  "devDependencies": {
+    "rimraf": "3.0.2",
+    "strapi-helper-plugin": "3.2.4"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "gitHead": "e8153d99c06ad3fb375e750a3d869d9d9441b5c3",
+  "homepage": "https://github.com/strapi/strapi#readme",
+  "license": "SEE LICENSE IN LICENSE",
+  "maintainers": [
+    {
+      "name": "Strapi team",
+      "email": "hi@strapi.io",
+      "url": "http://strapi.io"
+    }
+  ],
+  "name": "strapi-plugin-email",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/strapi/strapi.git"
+  },
+  "scripts": {
+    "test": "echo \"no tests yet\""
+  },
+  "strapi": {
+    "name": "Email",
+    "icon": "paper-plane",
+    "description": "email.plugin.description",
+    "required": true
+  },
+  "version": "3.2.4"
+}
