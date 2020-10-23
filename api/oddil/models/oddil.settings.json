@@ -29,14 +29,6 @@
       "collection": "clen",
       "via": "oddil"
     },
-    "hlavni_email": {
-      "type": "email",
-      "required": true
-    },
-    "hlavni_jmeno": {
-      "type": "string",
-      "required": true
-    },
     "sendinblue_templateID": {
       "type": "integer",
       "required": true

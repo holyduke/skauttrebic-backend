@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "public_oddils",
+  "info": {
+    "name": "public-oddil",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "popis": {
+      "type": "string"
+    },
+    "vekova_skupina": {
+      "type": "string"
+    },
+    "logo": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "nazev": {
+      "type": "string"
+    }
+  }
+}
