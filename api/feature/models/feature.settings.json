@@ -2,11 +2,13 @@
   "kind": "collectionType",
   "collectionName": "features",
   "info": {
-    "name": "feature"
+    "name": "feature",
+    "description": ""
   },
   "options": {
     "increments": true,
-    "timestamps": true
+    "timestamps": true,
+    "draftAndPublish": false
   },
   "attributes": {
     "done": {
@@ -14,7 +16,8 @@
       "default": false
     },
     "popis": {
-      "type": "string"
+      "type": "string",
+      "required": true
     }
   }
 }

@@ -466,7 +466,7 @@ type Feature {
   createdAt: DateTime!
   updatedAt: DateTime!
   done: Boolean
-  popis: String
+  popis: String!
 }
 
 type FeatureConnection {
@@ -521,7 +521,7 @@ type FeatureConnectionPopis {
 
 input FeatureInput {
   done: Boolean
-  popis: String
+  popis: String!
   created_by: ID
   updated_by: ID
 }
