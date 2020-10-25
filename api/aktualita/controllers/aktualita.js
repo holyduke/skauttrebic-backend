@@ -2,7 +2,7 @@
 
 const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
 
-const sgMail = require('@sendgrid/mail');
+// const sgMail = require('@sendgrid/mail');
 const { getMaxListeners } = require('strapi-utils/lib/logger');
 require('dotenv').config();
 

@@ -2,7 +2,7 @@
   "_args": [
     [
       "strapi-plugin-users-permissions@3.2.4",
-      "D:\\Skaut\\_GIT\\SkautTrebic\\backend"
+      "D:\\Skaut\\_GIT\\skauttrebic-backend"
     ]
   ],
   "_from": "strapi-plugin-users-permissions@3.2.4",
@@ -32,7 +32,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/strapi-plugin-users-permissions/-/strapi-plugin-users-permissions-3.2.4.tgz",
   "_spec": "3.2.4",
-  "_where": "D:\\Skaut\\_GIT\\SkautTrebic\\backend",
+  "_where": "D:\\Skaut\\_GIT\\skauttrebic-backend",
   "author": {
     "name": "Strapi team",
     "email": "hi@strapi.io",

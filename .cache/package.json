@@ -2,7 +2,7 @@
   "_args": [
     [
       "strapi-admin@3.2.4",
-      "D:\\Skaut\\_GIT\\SkautTrebic\\backend"
+      "D:\\Skaut\\_GIT\\skauttrebic-backend"
     ]
   ],
   "_from": "strapi-admin@3.2.4",
@@ -36,7 +36,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/strapi-admin/-/strapi-admin-3.2.4.tgz",
   "_spec": "3.2.4",
-  "_where": "D:\\Skaut\\_GIT\\SkautTrebic\\backend",
+  "_where": "D:\\Skaut\\_GIT\\skauttrebic-backend",
   "author": {
     "name": "Strapi"
   },
