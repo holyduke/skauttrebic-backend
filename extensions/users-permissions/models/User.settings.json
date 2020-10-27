@@ -6,7 +6,8 @@
     "description": ""
   },
   "options": {
-    "timestamps": true
+    "timestamps": true,
+    "draftAndPublish": false
   },
   "attributes": {
     "username": {
@@ -58,11 +59,18 @@
       "required": true
     },
     "aktualitas": {
-      "via": "autor",
-      "collection": "aktualita"
+      "collection": "aktualita",
+      "via": "autor"
     },
     "prezdivka": {
       "type": "string"
+    },
+    "approvedAt": {
+      "type": "datetime"
+    },
+    "approvedBy": {
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }
