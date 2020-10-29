@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "sent_emails_connectors",
+  "info": {
+    "name": "SentEmailsConnector"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "popis": {
+      "type": "string"
+    }
+  }
+}

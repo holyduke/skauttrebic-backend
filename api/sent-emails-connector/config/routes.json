@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/sent-emails-connector",
+      "handler": "sent-emails-connector.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/sent-emails-connector",
+      "handler": "sent-emails-connector.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/sent-emails-connector",
+      "handler": "sent-emails-connector.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
