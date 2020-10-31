@@ -1,8 +1,8 @@
 {
   "kind": "singleType",
-  "collectionName": "sent_emails_connectors",
+  "collectionName": "smtp_reports",
   "info": {
-    "name": "SentEmailsConnector"
+    "name": "SmtpReport"
   },
   "options": {
     "increments": true,

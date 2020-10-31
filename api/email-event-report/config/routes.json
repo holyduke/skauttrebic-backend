@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/email-event-report",
+      "handler": "email-event-report.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/email-event-report",
+      "handler": "email-event-report.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/email-event-report",
+      "handler": "email-event-report.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

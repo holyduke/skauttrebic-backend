@@ -371,6 +371,41 @@ type deleteDulezityVedouciPayload {
   dulezityVedouci: DulezityVedouci
 }
 
+type EmailEventReport {
+  id: ID!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  popis: String
+  published_at: DateTime
+}
+
+input EmailEventReportInput {
+  popis: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input editEmailEventReportInput {
+  popis: String
+  published_at: DateTime
+  created_by: ID
+  updated_by: ID
+}
+
+input updateEmailEventReportInput {
+  data: editEmailEventReportInput
+}
+
+type updateEmailEventReportPayload {
+  emailEventReport: EmailEventReport
+}
+
+type deleteEmailEventReportPayload {
+  emailEventReport: EmailEventReport
+}
+
 type Email {
   id: ID!
   _id: ID!
@@ -810,7 +845,7 @@ type deletePublicOddilPayload {
   publicOddil: PublicOddil
 }
 
-type SentEmailsConnector {
+type SmtpReport {
   id: ID!
   _id: ID!
   createdAt: DateTime!
@@ -819,30 +854,30 @@ type SentEmailsConnector {
   published_at: DateTime
 }
 
-input SentEmailsConnectorInput {
+input SmtpReportInput {
   popis: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
-input editSentEmailsConnectorInput {
+input editSmtpReportInput {
   popis: String
   published_at: DateTime
   created_by: ID
   updated_by: ID
 }
 
-input updateSentEmailsConnectorInput {
-  data: editSentEmailsConnectorInput
+input updateSmtpReportInput {
+  data: editSmtpReportInput
 }
 
-type updateSentEmailsConnectorPayload {
-  sentEmailsConnector: SentEmailsConnector
+type updateSmtpReportPayload {
+  smtpReport: SmtpReport
 }
 
-type deleteSentEmailsConnectorPayload {
-  sentEmailsConnector: SentEmailsConnector
+type deleteSmtpReportPayload {
+  smtpReport: SmtpReport
 }
 
 type Spravce {
@@ -1596,7 +1631,7 @@ type deleteUserPayload {
   user: UsersPermissionsUser
 }
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Aktualita | AktualitaConnection | AktualitaAggregator | AktualitaGroupBy | AktualitaConnectionId | AktualitaConnection_id | AktualitaConnectionCreatedAt | AktualitaConnectionUpdatedAt | AktualitaConnectionNadpis | AktualitaConnectionText | AktualitaConnectionAutor | AktualitaConnectionObrazek | AktualitaConnectionSlug | createAktualitaPayload | updateAktualitaPayload | deleteAktualitaPayload | Clen | ClenConnection | ClenAggregator | ClenGroupBy | ClenConnectionId | ClenConnection_id | ClenConnectionCreatedAt | ClenConnectionUpdatedAt | ClenConnectionJmeno | ClenConnectionPrezdivka | ClenConnectionOddil | createClenPayload | updateClenPayload | deleteClenPayload | DulezityVedouci | DulezityVedouciConnection | DulezityVedouciAggregator | DulezityVedouciGroupBy | DulezityVedouciConnectionId | DulezityVedouciConnection_id | DulezityVedouciConnectionCreatedAt | DulezityVedouciConnectionUpdatedAt | DulezityVedouciConnectionVedouci | createDulezityVedouciPayload | updateDulezityVedouciPayload | deleteDulezityVedouciPayload | Email | EmailConnection | EmailAggregator | EmailGroupBy | EmailConnectionId | EmailConnection_id | EmailConnectionCreatedAt | EmailConnectionUpdatedAt | EmailConnectionAddress | createEmailPayload | updateEmailPayload | deleteEmailPayload | Feature | FeatureConnection | FeatureAggregator | FeatureGroupBy | FeatureConnectionId | FeatureConnection_id | FeatureConnectionCreatedAt | FeatureConnectionUpdatedAt | FeatureConnectionDone | FeatureConnectionPopis | createFeaturePayload | updateFeaturePayload | deleteFeaturePayload | Oddil | OddilConnection | OddilAggregator | OddilAggregatorSum | OddilAggregatorAvg | OddilAggregatorMin | OddilAggregatorMax | OddilGroupBy | OddilConnectionId | OddilConnection_id | OddilConnectionCreatedAt | OddilConnectionUpdatedAt | OddilConnectionNazev | OddilConnectionVudce_oddilu | OddilConnectionSendinblue_templateID | createOddilPayload | updateOddilPayload | deleteOddilPayload | PublicOddil | PublicOddilConnection | PublicOddilAggregator | PublicOddilGroupBy | PublicOddilConnectionId | PublicOddilConnection_id | PublicOddilConnectionCreatedAt | PublicOddilConnectionUpdatedAt | PublicOddilConnectionPopis | PublicOddilConnectionVekova_skupina | PublicOddilConnectionLogo | PublicOddilConnectionNazev | createPublicOddilPayload | updatePublicOddilPayload | deletePublicOddilPayload | SentEmailsConnector | updateSentEmailsConnectorPayload | deleteSentEmailsConnectorPayload | Spravce | SpravceConnection | SpravceAggregator | SpravceGroupBy | SpravceConnectionId | SpravceConnection_id | SpravceConnectionCreatedAt | SpravceConnectionUpdatedAt | SpravceConnectionVedouci | createSpravcePayload | updateSpravcePayload | deleteSpravcePayload | Vedouci | VedouciConnection | VedouciAggregator | VedouciGroupBy | VedouciConnectionId | VedouciConnection_id | VedouciConnectionCreatedAt | VedouciConnectionUpdatedAt | VedouciConnectionJmeno | VedouciConnectionFunkce | VedouciConnectionPopis | VedouciConnectionPrezdivka | VedouciConnectionTelefon | VedouciConnectionEmail | VedouciConnectionOddil | VedouciConnectionFacebook | createVedouciPayload | updateVedouciPayload | deleteVedouciPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionJmeno | UsersPermissionsUserConnectionPrezdivka | UsersPermissionsUserConnectionApprovedAt | UsersPermissionsUserConnectionApprovedBy | createUserPayload | updateUserPayload | deleteUserPayload
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | UserPermissionsPasswordPayload | Aktualita | AktualitaConnection | AktualitaAggregator | AktualitaGroupBy | AktualitaConnectionId | AktualitaConnection_id | AktualitaConnectionCreatedAt | AktualitaConnectionUpdatedAt | AktualitaConnectionNadpis | AktualitaConnectionText | AktualitaConnectionAutor | AktualitaConnectionObrazek | AktualitaConnectionSlug | createAktualitaPayload | updateAktualitaPayload | deleteAktualitaPayload | Clen | ClenConnection | ClenAggregator | ClenGroupBy | ClenConnectionId | ClenConnection_id | ClenConnectionCreatedAt | ClenConnectionUpdatedAt | ClenConnectionJmeno | ClenConnectionPrezdivka | ClenConnectionOddil | createClenPayload | updateClenPayload | deleteClenPayload | DulezityVedouci | DulezityVedouciConnection | DulezityVedouciAggregator | DulezityVedouciGroupBy | DulezityVedouciConnectionId | DulezityVedouciConnection_id | DulezityVedouciConnectionCreatedAt | DulezityVedouciConnectionUpdatedAt | DulezityVedouciConnectionVedouci | createDulezityVedouciPayload | updateDulezityVedouciPayload | deleteDulezityVedouciPayload | EmailEventReport | updateEmailEventReportPayload | deleteEmailEventReportPayload | Email | EmailConnection | EmailAggregator | EmailGroupBy | EmailConnectionId | EmailConnection_id | EmailConnectionCreatedAt | EmailConnectionUpdatedAt | EmailConnectionAddress | createEmailPayload | updateEmailPayload | deleteEmailPayload | Feature | FeatureConnection | FeatureAggregator | FeatureGroupBy | FeatureConnectionId | FeatureConnection_id | FeatureConnectionCreatedAt | FeatureConnectionUpdatedAt | FeatureConnectionDone | FeatureConnectionPopis | createFeaturePayload | updateFeaturePayload | deleteFeaturePayload | Oddil | OddilConnection | OddilAggregator | OddilAggregatorSum | OddilAggregatorAvg | OddilAggregatorMin | OddilAggregatorMax | OddilGroupBy | OddilConnectionId | OddilConnection_id | OddilConnectionCreatedAt | OddilConnectionUpdatedAt | OddilConnectionNazev | OddilConnectionVudce_oddilu | OddilConnectionSendinblue_templateID | createOddilPayload | updateOddilPayload | deleteOddilPayload | PublicOddil | PublicOddilConnection | PublicOddilAggregator | PublicOddilGroupBy | PublicOddilConnectionId | PublicOddilConnection_id | PublicOddilConnectionCreatedAt | PublicOddilConnectionUpdatedAt | PublicOddilConnectionPopis | PublicOddilConnectionVekova_skupina | PublicOddilConnectionLogo | PublicOddilConnectionNazev | createPublicOddilPayload | updatePublicOddilPayload | deletePublicOddilPayload | SmtpReport | updateSmtpReportPayload | deleteSmtpReportPayload | Spravce | SpravceConnection | SpravceAggregator | SpravceGroupBy | SpravceConnectionId | SpravceConnection_id | SpravceConnectionCreatedAt | SpravceConnectionUpdatedAt | SpravceConnectionVedouci | createSpravcePayload | updateSpravcePayload | deleteSpravcePayload | Vedouci | VedouciConnection | VedouciAggregator | VedouciGroupBy | VedouciConnectionId | VedouciConnection_id | VedouciConnectionCreatedAt | VedouciConnectionUpdatedAt | VedouciConnectionJmeno | VedouciConnectionFunkce | VedouciConnectionPopis | VedouciConnectionPrezdivka | VedouciConnectionTelefon | VedouciConnectionEmail | VedouciConnectionOddil | VedouciConnectionFacebook | createVedouciPayload | updateVedouciPayload | deleteVedouciPayload | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileAggregatorSum | UploadFileAggregatorAvg | UploadFileAggregatorMin | UploadFileAggregatorMax | UploadFileGroupBy | UploadFileConnectionId | UploadFileConnection_id | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UploadFileConnectionName | UploadFileConnectionAlternativeText | UploadFileConnectionCaption | UploadFileConnectionWidth | UploadFileConnectionHeight | UploadFileConnectionFormats | UploadFileConnectionHash | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionPreviewUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | deleteFilePayload | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsUser | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionId | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnectionJmeno | UsersPermissionsUserConnectionPrezdivka | UsersPermissionsUserConnectionApprovedAt | UsersPermissionsUserConnectionApprovedBy | createUserPayload | updateUserPayload | deleteUserPayload
 
 input InputID {
   id: ID!
@@ -1624,6 +1659,7 @@ type Query {
   dulezityVedouci(id: ID!, publicationState: PublicationState): DulezityVedouci
   dulezityVedoucis(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [DulezityVedouci]
   dulezityVedoucisConnection(sort: String, limit: Int, start: Int, where: JSON): DulezityVedouciConnection
+  emailEventReport(publicationState: PublicationState): EmailEventReport
   email(id: ID!, publicationState: PublicationState): Email
   emails(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Email]
   emailsConnection(sort: String, limit: Int, start: Int, where: JSON): EmailConnection
@@ -1636,7 +1672,7 @@ type Query {
   publicOddil(id: ID!, publicationState: PublicationState): PublicOddil
   publicOddils(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [PublicOddil]
   publicOddilsConnection(sort: String, limit: Int, start: Int, where: JSON): PublicOddilConnection
-  sentEmailsConnector(publicationState: PublicationState): SentEmailsConnector
+  smtpReport(publicationState: PublicationState): SmtpReport
   spravce(id: ID!, publicationState: PublicationState): Spravce
   spravces(sort: String, limit: Int, start: Int, where: JSON, publicationState: PublicationState): [Spravce]
   spravcesConnection(sort: String, limit: Int, start: Int, where: JSON): SpravceConnection
@@ -1668,6 +1704,8 @@ type Mutation {
   createDulezityVedouci(input: createDulezityVedouciInput): createDulezityVedouciPayload
   updateDulezityVedouci(input: updateDulezityVedouciInput): updateDulezityVedouciPayload
   deleteDulezityVedouci(input: deleteDulezityVedouciInput): deleteDulezityVedouciPayload
+  updateEmailEventReport(input: updateEmailEventReportInput): updateEmailEventReportPayload
+  deleteEmailEventReport: deleteEmailEventReportPayload
   createEmail(input: createEmailInput): createEmailPayload
   updateEmail(input: updateEmailInput): updateEmailPayload
   deleteEmail(input: deleteEmailInput): deleteEmailPayload
@@ -1680,8 +1718,8 @@ type Mutation {
   createPublicOddil(input: createPublicOddilInput): createPublicOddilPayload
   updatePublicOddil(input: updatePublicOddilInput): updatePublicOddilPayload
   deletePublicOddil(input: deletePublicOddilInput): deletePublicOddilPayload
-  updateSentEmailsConnector(input: updateSentEmailsConnectorInput): updateSentEmailsConnectorPayload
-  deleteSentEmailsConnector: deleteSentEmailsConnectorPayload
+  updateSmtpReport(input: updateSmtpReportInput): updateSmtpReportPayload
+  deleteSmtpReport: deleteSmtpReportPayload
   createSpravce(input: createSpravceInput): createSpravcePayload
   updateSpravce(input: updateSpravceInput): updateSpravcePayload
   deleteSpravce(input: deleteSpravceInput): deleteSpravcePayload

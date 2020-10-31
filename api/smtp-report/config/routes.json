@@ -2,24 +2,24 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/sent-emails-connector",
-      "handler": "sent-emails-connector.find",
+      "path": "/smtp-report",
+      "handler": "smtp-report.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/sent-emails-connector",
-      "handler": "sent-emails-connector.update",
+      "path": "/smtp-report",
+      "handler": "smtp-report.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/sent-emails-connector",
-      "handler": "sent-emails-connector.delete",
+      "path": "/smtp-report",
+      "handler": "smtp-report.delete",
       "config": {
         "policies": []
       }

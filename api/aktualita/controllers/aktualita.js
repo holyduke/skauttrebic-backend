@@ -2,7 +2,6 @@
 
 const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
 
-// const sgMail = require('@sendgrid/mail');
 const { getMaxListeners } = require('strapi-utils/lib/logger');
 require('dotenv').config();
 
@@ -17,7 +16,6 @@ module.exports = {
 	},
 
 	async getEmailsForClen(clen) {
-		// console.log('getting emails for clen', clen);
 		let emailsClen = [];
 		for (const emailID of clen.emails) {
 			const email = await this.getEmailForEmailID(emailID);
@@ -75,7 +73,6 @@ module.exports = {
 				});
 			});
 		});
-		// })
 	},
 
 	getFromEmails() {
@@ -115,7 +112,6 @@ module.exports = {
 			text:postResponse.text,
 			url: 'https://skauttrebic.cz/aktuality/post/' + postResponse.slug,
 		}
-		// sendSmtpEmail.textContent = outputText;
 
 		apiInstance.sendTransacEmail(sendSmtpEmail).then(function(data) {
 			console.log('API called successfully. Returned data: ' + data);
@@ -139,18 +135,11 @@ module.exports = {
 			Promise.all([p_fromEmails, p_toEmails]).then((values) => {
 				let fromEmails = values[0];
 				let toEmails = values[1];
-				// console.log('_____Kontakty na vedouci jsou', fromEmails);
-				// console.log('_____All emails without duplicates ready to be sent are', toEmails);
 
 				toEmails.forEach((toItem) => {
-					// let fromContact = {
-					// 	name: '',
-					// 	email: ""
-					// }
 					let fromContact = fromEmails.find((fromItem) => {
 						return toItem.oddilID == fromItem.oddilID;
 					});
-					// console.log('fromContact for ', toItem, ' is ', fromContact);
 					this.sendNotification(entity, fromContact, toItem);
 				});
 			});
