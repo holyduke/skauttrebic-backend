@@ -2,7 +2,7 @@
   "kind": "singleType",
   "collectionName": "sent_emails_connectors",
   "info": {
-    "name": "EmailEventReport",
+    "name": "EmailTemplateReport",
     "description": ""
   },
   "options": {

@@ -2,24 +2,24 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/email-event-report",
-      "handler": "email-event-report.find",
+      "path": "/email-template-report",
+      "handler": "email-template-report.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/email-event-report",
-      "handler": "email-event-report.update",
+      "path": "/email-template-report",
+      "handler": "email-template-report.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/email-event-report",
-      "handler": "email-event-report.delete",
+      "path": "/email-template-report",
+      "handler": "email-template-report.delete",
       "config": {
         "policies": []
       }
