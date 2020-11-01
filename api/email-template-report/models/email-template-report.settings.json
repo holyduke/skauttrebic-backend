@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "sent_emails_connectors",
+  "info": {
+    "name": "EmailTemplateReport",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "popis": {
+      "type": "string"
+    }
+  }
+}

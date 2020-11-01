@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/smtp-report",
+      "handler": "smtp-report.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/smtp-report",
+      "handler": "smtp-report.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/smtp-report",
+      "handler": "smtp-report.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

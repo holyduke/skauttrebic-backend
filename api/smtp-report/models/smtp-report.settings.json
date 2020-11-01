@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "smtp_reports",
+  "info": {
+    "name": "SmtpReport"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "popis": {
+      "type": "string"
+    }
+  }
+}
