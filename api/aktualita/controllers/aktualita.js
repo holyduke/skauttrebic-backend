@@ -1,7 +1,6 @@
 'use strict';
 
 const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
-const slugify = require('slugify');
 
 const { getMaxListeners } = require('strapi-utils/lib/logger');
 require('dotenv').config();
