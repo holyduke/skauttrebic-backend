@@ -59,8 +59,8 @@
       "required": true
     },
     "aktualitas": {
-      "collection": "aktualita",
-      "via": "autor"
+      "via": "autor",
+      "collection": "aktualita"
     },
     "prezdivka": {
       "type": "string"

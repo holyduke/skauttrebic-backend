@@ -1,6 +1,7 @@
 'use strict';
 
 const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
+const slugify = require('slugify');
 
 const { getMaxListeners } = require('strapi-utils/lib/logger');
 require('dotenv').config();
@@ -91,6 +92,7 @@ module.exports = {
 	},
 
 	sendNotification(postResponse, fromContact, toMail) {
+		console.log("postResponse", postResponse);
 		console.log('trying to send email to', toMail.email, 'from template id', fromContact.sendinblue_templateID);
 		
 		// SendInBlue
@@ -110,19 +112,21 @@ module.exports = {
 		sendSmtpEmail.params = {
 			nadpis:postResponse.nadpis,
 			text:postResponse.text,
-			url: 'https://skauttrebic.cz/aktuality/post/' + postResponse.slug,
+			url: 'https://skauttrebic.cz/aktuality/prispevek/' + postResponse._id,
 		}
 
 		apiInstance.sendTransacEmail(sendSmtpEmail).then(function(data) {
-			console.log('API called successfully. Returned data: ' + data);
+			console.log('API called successfully. Returned data: ', data);
 		}, function(error) {
 			console.error(error);
 		});
 	},
 
+
 	async create(ctx) {
 		let entity;
-		if (ctx.is('multipart')) {
+		console.log("ctx.request.body", ctx.request.body);
+		if (ctx.is('multipart')) {			
 			const { data, files } = parseMultipartData(ctx);
 			entity = await strapi.services.aktualita.create(data, { files });
 		} else {
@@ -147,7 +151,6 @@ module.exports = {
 			console.log(err.message);
 			return err;
 		}
-
 		return sanitizeEntity(entity, { model: strapi.models.aktualita });
-	}
+	},
 };

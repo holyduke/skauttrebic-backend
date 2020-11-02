@@ -13,15 +13,16 @@
   "attributes": {
     "nadpis": {
       "type": "string",
-      "required": true
+      "required": true,
+      "unique": false
     },
     "text": {
       "type": "richtext",
       "required": false
     },
     "oddils": {
-      "via": "aktualitas",
       "collection": "oddil",
+      "via": "aktualitas",
       "dominant": true
     },
     "autor": {
@@ -48,10 +49,6 @@
       ],
       "plugin": "upload",
       "required": false
-    },
-    "slug": {
-      "type": "string",
-      "default": "Generated automatically based on the nadpis"
     }
   }
 }

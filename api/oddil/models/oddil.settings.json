@@ -22,8 +22,8 @@
       "model": "vedouci"
     },
     "aktualitas": {
-      "collection": "aktualita",
-      "via": "oddils"
+      "via": "oddils",
+      "collection": "aktualita"
     },
     "clens": {
       "collection": "clen",

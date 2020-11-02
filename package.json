@@ -16,7 +16,6 @@
     "require": "^2.4.20",
     "serve": "^11.3.2",
     "sib-api-v3-sdk": "^8.0.1",
-    "slugify": "^1.4.5",
     "strapi": "3.2.4",
     "strapi-admin": "3.2.4",
     "strapi-connector-mongoose": "3.2.4",
