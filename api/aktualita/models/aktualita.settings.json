@@ -26,9 +26,9 @@
       "dominant": true
     },
     "autor": {
+      "via": "aktualitas",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "aktualitas"
+      "model": "user"
     },
     "priloha": {
       "collection": "file",

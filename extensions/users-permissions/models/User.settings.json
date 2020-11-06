@@ -59,14 +59,16 @@
       "required": true
     },
     "aktualitas": {
-      "via": "autor",
-      "collection": "aktualita"
+      "collection": "aktualita",
+      "via": "autor"
     },
     "prezdivka": {
       "type": "string"
     },
     "approvedAt": {
-      "type": "datetime"
+      "type": "datetime",
+      "required": false,
+      "default": "2020-11-06T11:00:00.000Z"
     },
     "approvedBy": {
       "plugin": "users-permissions",
