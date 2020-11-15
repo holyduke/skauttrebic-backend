@@ -26,9 +26,9 @@
       "dominant": true
     },
     "autor": {
-      "via": "aktualitas",
       "plugin": "users-permissions",
-      "model": "user"
+      "model": "user",
+      "via": "aktualitas"
     },
     "priloha": {
       "collection": "file",
@@ -41,8 +41,8 @@
       "plugin": "upload",
       "required": false
     },
-    "obrazek": {
-      "model": "file",
+    "obrazky": {
+      "collection": "file",
       "via": "related",
       "allowedTypes": [
         "images"
