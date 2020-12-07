@@ -1,14 +1,14 @@
-// module.exports = ({ env }) => ({
-//     // ...
-//     email: {
-//       provider: 'sendgrid',
-//       providerOptions: {
-//         apiKey: env('SENDGRID_API_KEY'),
-//       },
-//       settings: {
-//         defaultFrom: 'jasekdominik34@gmail.com',
-//         defaultReplyTo: 'jasekdominik34@gmail.com',
-//       },
-//     },
-//     // ...
-//   });
+module.exports = {
+  //
+  graphql: {
+    endpoint: '/graphql',
+    shadowCRUD: true,
+    playgroundAlways: false,
+    depthLimit: 7,
+    amountLimit: 100,
+    apolloServer: {
+      tracing: false,
+    },
+    amountLimit: 400,
+  },
+};
